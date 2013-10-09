@@ -1,0 +1,162 @@
+@import url(reset.css);
+
+body {
+	background-image: url(../img/pizza1.jpg);
+	font-family: Arial;
+}
+
+.sidebar {
+	background-color: rgba(157, 114, 205, .8);
+	float:left;
+	width:270px;
+	padding: 20px;
+}
+
+.logo {
+	float: left;
+	opacity: 1;
+	width:270px;
+	height:auto;
+}
+
+.company-name {
+	color: #FFF;
+	padding-top: 20px;
+	font-size: 36px;
+	text-align: center
+}
+
+.motto {
+	color: #FFF;
+	font-style: italic;
+	padding: 5px;
+	font-size: 18px;
+	text-align: center;
+	border-bottom-width: thin;
+	border-bottom-color: #A9A9A9;
+	border-bottom-style: solid;
+	padding-bottom: 20px;
+}
+
+h1 {
+	font-size: 140%;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 120%;
+	text-align: center;
+}
+
+h3 {
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.store-information {
+	color: #FFF;
+	font-size: 16px;
+	border-color: #A9A9A9;
+	border-style: solid;
+	border-width: thin;
+	margin-top: 40px;
+	padding: 30px;
+	margin-bottom: 20px;
+}
+
+.side-content-box {
+	color: #FFF;
+	padding-top: 80px;
+	padding-bottom: 120px;
+}
+
+.icons {
+	text-align: center;
+}
+
+.gmail {
+	width: 50px;
+	height: auto;
+	padding:5px;
+}
+
+.facebook {
+	width: 50px;
+	height: auto;
+	padding:5px;
+}
+
+.twitter {
+	width: 50px;
+	height: auto;
+	padding:5px;
+}
+
+.navigation-bar {
+	color: #FFF;
+	padding: 20px;
+	margin-left: 330px;
+	padding: 28px;
+	border-bottom-width: thin;
+	border-bottom-color: #A9A9A9;
+	border-bottom-style: solid;
+}
+
+nav ul {
+	border-radius: 5px;
+	width: 100%;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	display: inline-block;
+	padding: 20px;
+	color: #9D72CD;
+	font-weight: bold;
+	font-size: 140%;
+}
+
+nav a:link,
+nav a:visited {
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: #FFF;
+   	background: rgba(157, 114, 205, .6); 
+	border-radius: 5px;
+}
+
+footer {
+	color: #FFF;
+	font-style: italic;
+	font-size: 80%;	
+	margin-top: 90%;
+	border-top-width: thin;
+	border-top-color: #A9A9A9;
+	border-top-style: solid;
+	padding-top: 20px;
+	clear: both;
+}
+
+.main {
+	background-color: rgba(157, 114, 205, .8);
+	color: #FFF;
+	margin-left: 340px;
+	margin-right: 40px;
+	text-align: center;
+}
+
+.pizza-order {
+	width:270px;
+	height: auto;
+}
+
+.pizza-oven {
+	width:270px;
+	height: auto;
+}
