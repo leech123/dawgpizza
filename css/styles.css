@@ -5,6 +5,10 @@ body {
 	font-family: Arial;
 }
 
+p {
+	padding: 5px;
+}
+
 .sidebar {
 	background-color: rgba(157, 114, 205, .8);
 	float:left;
@@ -15,8 +19,8 @@ body {
 .logo {
 	float: left;
 	opacity: 1;
-	width:270px;
-	height:auto;
+	width: 270px;
+	height: auto;
 }
 
 .company-name {
@@ -50,18 +54,29 @@ h2 {
 }
 
 h3 {
-	padding-bottom: 20px;
+	font-size:110%;
+	font-style: bold;
+	padding: 5px;
+	padding-top: 40px;
+}
+
+h4 {
+	font-size: 105%;
+	font-style: bold;
+	padding-top: 15px;
 	text-align: center;
 }
 
-.store-information {
+
+
+.boxed-information {
 	color: #FFF;
 	font-size: 16px;
 	border-color: #A9A9A9;
 	border-style: solid;
 	border-width: thin;
 	margin-top: 40px;
-	padding: 30px;
+	padding: 20px;
 	margin-bottom: 20px;
 }
 
@@ -97,7 +112,7 @@ h3 {
 	color: #FFF;
 	padding: 20px;
 	margin-left: 330px;
-	padding: 28px;
+	padding: 31px;
 	border-bottom-width: thin;
 	border-bottom-color: #A9A9A9;
 	border-bottom-style: solid;
@@ -140,7 +155,7 @@ footer {
 	border-top-color: #A9A9A9;
 	border-top-style: solid;
 	padding-top: 20px;
-	clear: both;
+
 }
 
 .main {
@@ -148,6 +163,10 @@ footer {
 	color: #FFF;
 	margin-left: 340px;
 	margin-right: 40px;
+	padding: 20px;
+}
+
+.menu {
 	text-align: center;
 }
 
