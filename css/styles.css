@@ -212,12 +212,14 @@ footer {
 	nav a {
 		padding: 20px 30px;
 	}
+}
 
 @media screen and (max-width: 945px) {
 	nav a {
 		font-size: 130%;
 		padding: 24px 15px;
 	}
+}
 
 @media screen and (max-width: 767px) {
 	/* styles to apply on very narrow screens */
