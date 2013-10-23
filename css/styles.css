@@ -113,6 +113,7 @@ h4 {
 .navigation-bar {
 	color: #FFF;
 	margin-left: 330px;
+	text-align: center;
 	padding: 37px;
 	border-bottom-width: thin;
 	border-bottom-color: #A9A9A9;
@@ -190,6 +191,11 @@ footer {
 
 	.main {
 		margin: 10px;
+		font-size: 80%;
+	}
+
+	.boxed-information {
+		font-size: 12px;
 	}
 
 	.navigation-bar {
