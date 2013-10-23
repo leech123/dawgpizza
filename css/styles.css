@@ -1,9 +1,12 @@
 @import url(reset.css);
 
+
 body {
 	background-image: url(../img/pizza1.jpg);
 	font-family: Arial;
+	background-repeat: no-repeat;
 }
+
 
 p {
 	padding: 5px;
@@ -14,6 +17,9 @@ p {
 	float:left;
 	width:310px;
 	padding: 20px;
+	height:100%;
+	position:absolute;
+	bottom:0;
 }
 
 .logo {
@@ -53,6 +59,7 @@ h1 {
 }
 
 h2 {
+	color: #954AE0;
 	font-size: 120%;
 	text-align: center;
 }
@@ -62,6 +69,7 @@ h3 {
 	font-style: bold;
 	padding: 5px;
 	padding-top: 40px;
+	color: #FFDF00;
 }
 
 h4 {
@@ -69,6 +77,11 @@ h4 {
 	font-style: bold;
 	padding-top: 15px;
 	text-align: center;
+}
+
+h5 {
+	font-style: italic;
+	font-size: 90%;
 }
 
 .boxed-information {
@@ -92,29 +105,35 @@ h4 {
 	text-align: center;
 }
 
-.gmail {
-	width: 50px;
-	height: auto;
-	padding:5px;
-}
-
-.facebook {
-	width: 50px;
-	height: auto;
-	padding:5px;
-}
-
+.gmail,
+.facebook,
 .twitter {
 	width: 50px;
 	height: auto;
 	padding:5px;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	transition: all 0.2s ease; 
+}
+
+.gmail:hover,
+.facebook:hover,
+.twitter:hover {
+	-webkit-transform: scale(1.5) rotate(-5deg);
+	-moz-transform: scale(1.5) rotate(-5deg);
+	-o-transform: scale(1.5) rotate(-5deg);
+	-ms-transform: scale(1.5) rotate(-5deg);
+	transform: scale(1.5) rotate(-5deg);
 }
 
 .navigation-bar {
 	color: #FFF;
-	margin-left: 330px;
+	margin-left: 340px;
+	margin-right: 40px; 
 	text-align: center;
-	padding: 37px;
+	padding: 35px;
 	border-bottom-width: thin;
 	border-bottom-color: #A9A9A9;
 	border-bottom-style: solid;
@@ -131,10 +150,10 @@ nav li {
 
 nav a {
 	display: inline-block;
-	padding: 20px;
+	padding: 20px 60px;
 	color: #954AE0;
 	font-weight: bold;
-	font-size: 150%;
+	font-size: 180%;
 }
 
 nav a:link,
@@ -150,13 +169,16 @@ nav a:hover {
 
 footer {
 	color: #FFF;
+	clear: both;
 	font-style: italic;
 	font-size: 80%;	
-	margin-top: 90%;
+	margin-top: 100%;
 	border-top-width: thin;
 	border-top-color: #A9A9A9;
 	border-top-style: solid;
 	padding-top: 20px;
+	position:absolute;
+	bottom:0;
 
 }
 
@@ -166,6 +188,10 @@ footer {
 	margin-left: 340px;
 	margin-right: 40px;
 	padding: 20px;
+}
+
+.youtube {
+	float: left;
 }
 
 .menu {
@@ -182,6 +208,17 @@ footer {
 	height: auto;
 }
 
+@media screen and (max-width: 1124px) {
+	nav a {
+		padding: 20px 30px;
+	}
+
+@media screen and (max-width: 945px) {
+	nav a {
+		font-size: 130%;
+		padding: 24px 15px;
+	}
+
 @media screen and (max-width: 767px) {
 	/* styles to apply on very narrow screens */
 
@@ -192,10 +229,12 @@ footer {
 	.main {
 		margin: 10px;
 		font-size: 80%;
+		padding: 5px;
 	}
 
 	.boxed-information {
 		font-size: 12px;
+		padding: 5px;
 	}
 
 	.navigation-bar {
@@ -204,8 +243,8 @@ footer {
 	}
 
 	nav a {
-		padding: 10px;
-		font-size: 100%;
+		padding: 5px;
+		font-size: 110%;
 	}
 
 }
