@@ -10,17 +10,21 @@ p {
 }
 
 .sidebar {
-	background-color: rgba(157, 114, 205, .8);
+	background-color: rgba(0, 0, 0, .5);
 	float:left;
-	width:270px;
+	width:310px;
 	padding: 20px;
 }
 
 .logo {
 	float: left;
-	opacity: 1;
+	opacity: .8;
 	width: 270px;
 	height: auto;
+}
+
+.logo:hover {
+	opacity: 1;
 }
 
 .company-name {
@@ -82,7 +86,7 @@ h4 {
 
 .side-content-box {
 	color: #FFF;
-	padding-top: 80px;
+	padding-top: 30px;
 	padding-bottom: 120px;
 }
 
@@ -112,7 +116,7 @@ h4 {
 	color: #FFF;
 	padding: 20px;
 	margin-left: 330px;
-	padding: 31px;
+	padding: 37px;
 	border-bottom-width: thin;
 	border-bottom-color: #A9A9A9;
 	border-bottom-style: solid;
@@ -130,9 +134,9 @@ nav li {
 nav a {
 	display: inline-block;
 	padding: 20px;
-	color: #9D72CD;
+	color: #954AE0;
 	font-weight: bold;
-	font-size: 140%;
+	font-size: 150%;
 }
 
 nav a:link,
@@ -141,8 +145,8 @@ nav a:visited {
 }
 
 nav a:hover {
-	color: #FFF;
-   	background: rgba(157, 114, 205, .6); 
+	color: #FFDF00;
+   	background: rgba(92, 46, 139, .6); 
 	border-radius: 5px;
 }
 
@@ -159,7 +163,7 @@ footer {
 }
 
 .main {
-	background-color: rgba(157, 114, 205, .8);
+	background-color: rgba(0, 0, 0, .5);
 	color: #FFF;
 	margin-left: 340px;
 	margin-right: 40px;
