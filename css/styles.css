@@ -71,8 +71,6 @@ h4 {
 	text-align: center;
 }
 
-
-
 .boxed-information {
 	color: #FFF;
 	font-size: 16px;
@@ -114,7 +112,6 @@ h4 {
 
 .navigation-bar {
 	color: #FFF;
-	padding: 20px;
 	margin-left: 330px;
 	padding: 37px;
 	border-bottom-width: thin;
@@ -182,4 +179,27 @@ footer {
 .pizza-oven {
 	width:270px;
 	height: auto;
+}
+
+@media screen and (max-width: 767px) {
+	/* styles to apply on very narrow screens */
+
+	.sidebar {
+		display:none;
+	}
+
+	.main {
+		margin: 10px;
+	}
+
+	.navigation-bar {
+		margin: 10px;
+		padding: 20px;
+	}
+
+	nav a {
+		padding: 10px;
+		font-size: 100%;
+	}
+
 }
