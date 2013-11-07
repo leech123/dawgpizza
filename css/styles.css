@@ -17,9 +17,7 @@ p {
 	float:left;
 	width:310px;
 	padding: 20px;
-	height:100%;
-	position:absolute;
-	bottom:0;
+	height: 100%;
 }
 
 .logo {
@@ -77,6 +75,7 @@ h4 {
 	font-style: bold;
 	padding-top: 15px;
 	text-align: center;
+	text-transform: uppercase;
 }
 
 h5 {
@@ -177,9 +176,7 @@ footer {
 	border-top-color: #A9A9A9;
 	border-top-style: solid;
 	padding-top: 20px;
-	position:absolute;
-	bottom:0;
-
+	bottom: 0;
 }
 
 .main {
@@ -206,6 +203,15 @@ footer {
 .pizza-oven {
 	width:270px;
 	height: auto;
+}
+
+.menu-title {
+	color: #FFDF00;
+}
+
+.template {
+	display: none;
+	margin: 50px;
 }
 
 @media screen and (max-width: 1124px) {
