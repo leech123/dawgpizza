@@ -149,7 +149,7 @@ nav li {
 
 nav a {
 	display: inline-block;
-	padding: 20px 60px;
+	padding: 20px 50px;
 	color: #954AE0;
 	font-weight: bold;
 	font-size: 180%;
@@ -214,16 +214,23 @@ footer {
 	margin: 50px;
 }
 
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1224px) {
 	nav a {
 		padding: 20px 30px;
 	}
 }
 
-@media screen and (max-width: 945px) {
+@media screen and (max-width: 1065px) {
 	nav a {
 		font-size: 130%;
 		padding: 24px 15px;
+	}
+}
+
+@media screen and (max-width: 965px) {
+	nav a {
+		font-size: 120%;
+		padding: 24px 10px;
 	}
 }
 
