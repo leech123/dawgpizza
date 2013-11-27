@@ -65,27 +65,24 @@ function renderCart(cart, template, container) {
     container.empty();
     
 
-    $.each(cart, function() {
-        item = template.clone();
-        item.find('.size').html(this.size);
+    // $.each(cart, function() {
+    //     item = template.clone();
+    //     item.find('.size').html(this.size);
         
-        item.removeClass('template');
-        container.append(item);
-    });
+    //     item.removeClass('template');
+    //     container.append(item);
+    // });
 
-/*
     //for each item in the cart...
     for (idx = 0; idx < cart.items.length; ++idx) {
         item = cart.items[idx];
 
         //TODO: code to render the cart item
-        instance.find('.description').html(this.description);
 
-        container.append(item);
+        container.append(item.name);
 
     } //for each cart item
 
-*/
     
     //TODO: code to render sub-total price of the cart
     //the tax amount (see instructions), 
