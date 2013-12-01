@@ -1,19 +1,21 @@
+var subtotal = 0;
+var tax = 0;
+var grandtotal = 0;
+
 //document ready function
 $(function(){
-    renderPizza(com.dawgpizza.menu.pizzas, $('.pizzas-order-template'), $('.order-list'));
-    //renderDrink(com.dawgpizza.menu.drinks, $('.drinks-template'), $('.container'));
-    //renderDessert(com.dawgpizza.menu.desserts, $('.desserts-template'), $('.container'));
-    
     //create a cart model as a simple object with
     //the properties we eventually need to post to
     //the server
     var cart = {
-        name: null,
+        first: null,
+        last: null,
         address1: null,
         zip: null,
         phone: null,
         items: [] //empty array
     }; //cart data
+
 
     //click event handler for all buttons with the
     //style class 'add-to-cart'
@@ -36,18 +38,65 @@ $(function(){
         //note that you would need a <div> or some
         //other grouping element on the page that has a
         //style class of 'cart-container'
-        renderCart(cart, $('.cart-order-template'), $('.cart-container'));
+        renderCart(cart, $('.cart-template'), $('.cart-container'));
+        renderPrice($('.price-template'), $('.cart-container'));
     });
 
-    $('.place-order').click(function(){
+    $('.start-over').click(function(){
+        emptyCart(cart, $('.cart-container'));
+    });
+
+    $('.place-order').submit(function(){
         
         //TODO: validate the cart to make sure all the required
         //properties have been filled out, and that the 
         //total order is greater than $20 (see homework 
-        //instructions) 
+        //instructions)
+
+        //code to execute when the form is submitted
+        //this is the raw DOM form element
+        //wrap it in a jQuery object so we can use jQuery methods on it
+        var signupForm = $(this);
+
+        var firstInput = signupForm.find('input[name="first-name"]');
+        first = firstInput.val();
+        var lastInput = signupForm.find('input[name="last-name"]');
+        last = lastInput.val();
+        var phoneInput = signupForm.find('input[name="phone"]');
+        phone = phoneInput.val();
+
+        //select a descendant input element with the name "addr-1"
+        var addr1Input = signupForm.find('input[name="addr-1"]');
+        var addr1Value = addr1Input.val();
+        address1 = addr1Value;
+        var zipInput = signupForm.find('input[name="zip"]');
+        var zipValue = zipInput.val();
+        zip = zipValue;
+
+        if (addr1Value && addr1Value.trim().length > 0 && zipValue && zipValue.trim().length > 0) {
+            if (grandtotal >= 20) {
+                return true;
+            } else {
+                alert("Order must be minimum of $20");
+                return false;
+            }
+        } else {
+            alert("Only spaces is not allowed!");
+            return false;
+        }
 
         postCart(cart, $('.cart-form'));
     });
+    
+    $('.remove').click(function(){
+        $('.cart-container').empty();
+        var idxToRemove = this.getAttribute('data-index');
+        cart.items.splice(idxToRemove, 1);
+
+        renderCart(cart, $('.cart-template'), $('.cart-container'));
+        renderPrice($('.price-template'), $('.cart-container'));
+    });
+
 
 }); //doc ready
 
@@ -59,36 +108,54 @@ $(function(){
 
 function renderCart(cart, template, container) {
     var item;
-    var idx
+    var idx;
+    var instance;
+
     
     //empty the container of whatever is there currently
     container.empty();
-    
-
-    // $.each(cart, function() {
-    //     item = template.clone();
-    //     item.find('.size').html(this.size);
-        
-    //     item.removeClass('template');
-    //     container.append(item);
-    // });
 
     //for each item in the cart...
-    for (idx = 0; idx < cart.items.length; ++idx) {
+    for (idx = 0; idx < cart.items.length; idx++) {
+        instance = template.clone();
         item = cart.items[idx];
 
+        instance.find('.name').html(item.name);
+        instance.find('.price').html("$" + item.price);
+        
         //TODO: code to render the cart item
+        instance.removeClass('template');
+        container.append(instance);
 
-        container.append(item.name);
-
+        subtotal += +item.price;
+        tax = subtotal * 0.095;
+        grandtotal = subtotal + tax;
     } //for each cart item
-
+    template.empty();
     
-    //TODO: code to render sub-total price of the cart
-    //the tax amount (see instructions), 
-    //and the grand total
-
 } //renderCart()
+
+//TODO: code to render sub-total price of the cart
+//the tax amount (see instructions), 
+//and the grand total
+function renderPrice(template, container) {
+    var instance;
+    instance = template.clone();
+    instance.find('.total').html("Total:");
+    instance.find('.subtotal').html("Subtotal: $" + subtotal.toFixed(2));
+    instance.find('.tax').html("Tax: $" + tax.toFixed(2));
+    instance.find('.grandtotal').html("Grandtotal: $" + grandtotal.toFixed(2));
+    instance.removeClass('template');
+    container.append(instance);
+}
+
+function emptyCart(cart, container) {
+    container.empty();
+    cart.items = [];
+    subtotal = 0;
+    tax = 0;
+    grandtotal = 0;
+}
 
 // postCart()
 // posts the cart model to the server using
@@ -104,56 +171,4 @@ function postCart(cart, cartForm) {
 
     //submit the form--this will navigate to an order confirmation page
     cartForm.submit();
-
 } //postCart()
-
-
-
-function renderPizza(entries, template, menuBook) {
-    var instance;
-    var type;
-
-    $.each(entries, function(){
-        instance = template.clone();
-        instance.find('.name').html(this.name);
-        instance.find('.description').html(this.description);
-        instance.find('.price-small').html(this.prices[0]);
-        instance.find('.price-medium').html(this.prices[1]);
-        instance.find('.price-large').html(this.prices[2]);
-
-        instance.removeClass('template');
-        menuBook.append(instance);
-    });
-}
-
-function renderDrink(entries, template, menuBook) {
-    var instance;
-    var type;
-    var stringDrink = "Drink:";
-    menuBook.append(stringDrink);
-
-    $.each(entries, function(){
-        instance = template.clone();
-        instance.find('.name').html(this.name);
-        instance.find('.price').html(this.price);
-
-        instance.removeClass('template');
-        menuBook.append(instance);
-    });
-}
-
-function renderDessert(entries, template, menuBook) {
-    var instance;
-    var type;
-    var stringDessert = "Dessert:";
-    menuBook.append(stringDessert);
-
-    $.each(entries, function(){
-        instance = template.clone();
-        instance.find('.name').html(this.name);
-        instance.find('.price').html(this.price);
-
-        instance.removeClass('template');
-        menuBook.append(instance);
-    });
-}

@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
 		 <!-- hot link to Bootstrap stylesheet -->
-    	<!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
+    	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 		
 		<!-- tells the browser to get style information from styles.css in our 'css' sub-directory -->
-		<!-- <link rel="stylesheet" href="css/styles.css"> -->
+		<link rel="stylesheet" href="css/styles.css">
 
 		<title>Dawg Pizza</title>
 
@@ -17,35 +17,76 @@
 	</head>
 
 	<body>
-		<!-- <div class="sidebar">
+ 		<div class="shopping-cart">
+
 			<a href="index.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
 			<p class="motto">Where The Dawgs Go</p>
-
-			<img class="pizza-order" src="img/pizza-order.jpg" alt="Order Here">
-
-			<div class="boxed-information">
-				<h1>Call us for delivery:</h1> <h1>(206) 555-1212 </h1><br>
-				<h1>In-Store Pickup:</h1> <h2>4306 University Way NE, Seattle, WA 98105</h2>
-			</div>
-
-			<div class="icons">
-				<ul>
-					<a href="mailto:dawgpizzaseattle@gmail.com"><img class="gmail" src="img/gmail.png" atl="Gmail"></a>
-					<a href="http://www.facebook.com/dawgpizza"><img class="facebook" src="img/fb.png" atl="Facebook"></a>
-					<a href="http://www.twitter.com/DawgPizzaSea"><img class="twitter" src="img/twitter.png" atl="Twitter"></a>
-					<a href="https://twitter.com/DawgPizzaSea" class="twitter-follow-button" data-show-count="false">Follow @DawgPizzaSea</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-				</ul>
-			</div>
-
-			<footer>
-				<address>
-					<p>© 2013 Dawg Pizza</p>
-					<p>Call us for delivery: (206) 555-1212</p>
-				</address>
-			</footer>
 			
-		</div>
+			<img class="pizza-order" src="img/Supreme_pizza.jpg" alt="Order Here">
+
+			<h2>Shopping Cart:</h2>
+			<div class="cart-container"></div>
+
+		    <div class="template cart-template">
+		    	<p class="name"></p>
+		    	<p class="price"></p>
+		    	<button type="button" class="remove">Remove</button>
+		    </div>
+		    <div class="template price-template">
+		    	<h2 class="total"></h2>
+			    <p class="subtotal"></p>
+				<p class="tax"></p>
+				<p class="grandtotal"></p>
+			</div>
+
+			
+
+			<form method="POST" action="http://dawgpizza.com/orders/" class="form-horizontal place-order form-style" role="form">
+
+				<div class="form-group">
+	                <label class="col-lg-2 control-label" for="first-name">Name</label>
+	                <div class="col-lg-5">
+	                    <input type="text" class="form-control" name="first-name" id="first-name" placeholder="first name">
+	                </div>
+	                <div class="col-lg-5">
+	                    <input type="text" class="form-control" name="last-name" id="last-name" placeholder="last name">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label class="col-lg-2 control-label" for="addr-1">Address</label>
+	                <div class="col-lg-10">
+	                    <input type="text" class="form-control" name="addr-1" id="addr-1" placeholder="street address">
+	                    <input type="text" class="form-control" name="addr-2">
+	                    <input type="text" class="form-control" name="addr-3">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label class="col-lg-2 control-label" for="city">Zip</label>
+	                <div class="col-lg-10">
+	                    <div class="row">
+	                        <div class="col-lg-6">
+	                            <input type="text" class="form-control" name="zip" placeholder="zip code">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+
+	            <div class="form-group">
+	                <label class="col-lg-2 control-label" for="phone">Phone</label>
+	                <div class="col-lg-10">
+	                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="primary phone number">
+	                </div>
+	            </div>
+
+	           	<div class="row">
+	        		<div class="col-lg-12 text-right">
+	            		<button type="submit" class="btn btn-primary">Place my order</button>
+	            		<button type="reset" class="btn start-over">Start over</button>
+	        		</div>
+	    		</div>
+	        </div>
+	    </form> 
+			
 
 		<div class="navigation-bar">
 			<nav>
@@ -56,100 +97,97 @@
 					<li><a href="about.html">About Us</a></li>
 				</ul>
 			</nav>
-		</div> -->
+		</div>
 
+		<div class="main">
+            <div class="menu">
+                <div class="row">
+                    <div class="clearfix visible-xs"></div>
+                    <p>*We deliver only within the Seattle city limits, and only from noon to 11:00pm. We accept cash or credit cards on delivery.* **Minimum purchase of $20.**</p>
+                    <div class="col-md-6">
 
+                        <h3>Meat Pies:</h3>
 
+                        <h4>CLASSIC PEPPERONI</h4>
+                        <p>Pepperoni and Mozzarella on our Spicy Tomato Sauce. $10/$13/$16</p>
+                        <button type="button" data-type="Pizza" data-name="Classic Pepperoni" data-size="Small" data-price="10" class="add-to-cart">$10 Small</button>
+                        <button type="button" data-type="Pizza" data-name="Classic Pepperoni" data-size="Medium" data-price="13" class="add-to-cart">$13 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="Classic Pepperoni" data-size="Large" data-price="16" class="add-to-cart">$16 Large</button>
 
+                        <h4>THE HAWAIIAN</h4>
+                        <p>Canadian Bacon and Pineapple with Mozzarella on a rich Tomato Sauce.  $12/$14/$17</p>
+                        <button type="button" data-type="Pizza" data-name="The Hawaiian" data-size="Small" data-price="12" class="add-to-cart">$12 Small</button>
+                        <button type="button" data-type="Pizza" data-name="The Hawaiian" data-size="Medium" data-price="14" class="add-to-cart">$14 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="The Hawaiian" data-size="Large" data-price="17" class="add-to-cart">$17 Large</button>
 
-<!-- 		<div class="main">
- -->
-			<div class="order-list"></div>
-			<div class="cart-container"></div>
+                        <h4>DUCK, DUCK, GOOSE</h4>
+                        <p>Roasted Duck and Goose with Bacon, Chestnuts on a rich Plum Sauce.  $15/$17/$19</p>
+                        <button type="button" data-type="Pizza" data-name="Duck, Duck, Goose" data-size="Small" data-price="15" class="add-to-cart">$15 Small</button>
+                        <button type="button" data-type="Pizza" data-name="Duck, Duck, Goose" data-size="Medium" data-price="17" class="add-to-cart">$17 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="Duck, Duck, Goose" data-size="Large" data-price="19" class="add-to-cart">$19 Large</button>
 
-			<div class="container">
+                        <h4>THE BAMBI</h4>
+                        <p>Slow-cooked Venison with Red Cabbage on our famous Black Cherry Sauce.  $15/$17/$19</p>
+                        <button type="button" data-type="Pizza" data-name="The Bambi" data-size="Small" data-price="15" class="add-to-cart">$15 Small</button>
+                        <button type="button" data-type="Pizza" data-name="The Bambi" data-size="Medium" data-price="17" class="add-to-cart">$17 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="The Bambi" data-size="Large" data-price="19" class="add-to-cart">$19 Large</button>
 
-				<div class="template pizzas-order-template" data-type="pizza">
-					<div class="col-md-8">
-						<h4 class="name" data-name="name"></h4>
-						<p class="description"></p>
-						<button type="button" data-name="name" data-size="small" class="btn btn-default add-to-cart name"><span class="price-small"></span> Small</button>
-						<button type="button" data-size="medium" class="btn btn-default add-to-cart"><span class="price-medium"></span> Medium</button>
-						<button type="button" data-size="large" class="btn btn-default add-to-cart"><span class="price-large"></span> Large</button>
-					</div>
-				</div>
+                        <h4>THE ULTIMATE</h4>
+                        <p>Pepperoni, Bacon, Canadian Bacon, Chicken, Duck, Goose, and Ground Beef with Smoked Mozzarella on our Spicy Tomato Sauce. Add Venison or Elk for an extra $2!  $15/$19/$23</p>
+                        <button type="button" data-type="Pizza" data-name="The Ultimate" data-size="Small" data-price="15" class="add-to-cart">$15 Small</button>
+                        <button type="button" data-type="Pizza" data-name="The Ultimate" data-size="Medium" data-price="19" class="add-to-cart">$19 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="The Ultimate" data-size="Large" data-price="23" class="add-to-cart">$23 Large</button>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Vegetarian Pies:</h3>
 
-			
-				<div class="template cart-order-template">
-					<div class="col-md-4">
-<!-- 						<h4 class="name"></h4>
-						<h4 class="price"></h4> -->
-						<h4 class="size"></h4>
-					</div>
-				</div>
+                        <h4>MARGHERITA</h4>
+                        <p>Mozzarella, Basil, Salt on an Olive Oil Base.  $10/$13/$16 </p>
+                        <button type="button" data-type="Pizza" data-name="Margherita" data-size="Small" data-price="10" class="add-to-cart">$10 Small</button>
+                        <button type="button" data-type="Pizza" data-name="Margherita" data-size="Medium" data-price="13" class="add-to-cart">$13 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="Margherita" data-size="Large" data-price="16" class="add-to-cart">$16 Large</button>
 
+                        <h4>VEGGIE MADNESS</h4>
+                        <p>Mushroom, Black Olive, Onions, Roasted Garlic, Squash and Roasted Eggplant on our Spicy Tomato Sauce.  $11/$14/$17</p>
+                         <button type="button" data-type="Pizza" data-name="Veggie Madness" data-size="Small" data-price="11" class="add-to-cart">$11 Small</button>
+                        <button type="button" data-type="Pizza" data-name="Veggie Madness" data-size="Medium" data-price="14" class="add-to-cart">$14 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="Veggie Madness" data-size="Large" data-price="17" class="add-to-cart">$17 Large</button>
 
-				<form method="POST" action="https://courses.washington.edu/info343/signup/" class="form-horizontal signup-form" role="form">
+                        <h4>FOREST FLOOR</h4>
+                        <p>Three kinds of mushrooms with Mozzarella on a herb Tomato Sauce.  $11/$14/$17</p>
+                         <button type="button" data-type="Pizza" data-name="Forest Floor" data-size="Small" data-price="11" class="add-to-cart">$11 Small</button>
+                        <button type="button" data-type="Pizza" data-name="Forest Floor" data-size="Medium" data-price="14" class="add-to-cart">$14 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="Forest Floor" data-size="Large" data-price="17" class="add-to-cart">$17 Large</button>
 
-					<div class="col-md-4">
-						<div class="form-group">
-			                <label class="col-lg-2 control-label" for="first-name">Name</label>
-			                <div class="col-lg-5">
-			                    <input type="text" class="form-control" name="first-name" id="first-name" placeholder="first name">
-			                </div>
-			                <div class="col-lg-5">
-			                    <input type="text" class="form-control" name="last-name" id="last-name" placeholder="last name">
-			                </div>
-			            </div>
-			            <div class="form-group">
-			                <label class="col-lg-2 control-label" for="addr-1">Address</label>
-			                <div class="col-lg-10">
-			                    <input type="text" class="form-control" name="addr-1" id="addr-1" placeholder="street address">
-			                    <input type="text" class="form-control" name="addr-2">
-			                    <input type="text" class="form-control" name="addr-3">
-			                </div>
-			            </div>
-			            <div class="form-group">
-			                <label class="col-lg-2 control-label" for="city">Zip</label>
-			                <div class="col-lg-10">
-			                    <div class="row">
-			                        <div class="col-lg-6">
-			                            <input type="text" class="form-control" name="zip" placeholder="zip code">
-			                        </div>
-			                    </div>
-			                </div>
-			            </div>
+                        <h4>MR GREEN</h4>
+                        <p>Roasted Chicken with Romano on a Basil Pesto sauce. $13/$16/$19</p>
+                        <button type="button" data-type="Pizza" data-name="Mr Green" data-size="Small" data-price="13" class="add-to-cart">$13 Small</button>
+                        <button type="button" data-type="Pizza" data-name="Mr Green" data-size="Medium" data-price="16" class="add-to-cart">$16 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="Mr Green" data-size="Large" data-price="19" class="add-to-cart">$19 Large</button>
 
-			            <div class="form-group">
-			                <label class="col-lg-2 control-label" for="phone">Phone</label>
-			                <div class="col-lg-10">
-			                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="primary phone number">
-			                </div>
-			            </div>
+                        <h4>PURPLE MONSTER</h4>
+                        <p>Roasted Eggplant and Cabbage stir fried in sesame oil on a rich Plum Sauce.  $11/$14/$17</p>
+                        <button type="button" data-type="Pizza" data-name="Purple Monster" data-size="Small" data-price="11" class="add-to-cart">$11 Small</button>
+                        <button type="button" data-type="Pizza" data-name="Purple Monster" data-size="Medium" data-price="14" class="add-to-cart">$14 Medium</button>
+                        <button type="button" data-type="Pizza" data-name="Purple Monster" data-size="Large" data-price="17" class="add-to-cart">$17 Large</button>
+                    </div>
+                </div> <!-- row -->
 
-			           	<div class="row">
-	                		<div class="col-lg-12 text-right">
-	                    		<button type="submit" class="btn btn-primary">Place my order</button>
-	                		</div>
-	            		</div>
-	   
-			        </div>
+                <h3>Drinks:</h3>
+                <p>Any for $4. Alcoholic drinks are not offered through online order</p>
+                <button type="button" data-type="Drink" data-name="Coke" data-price="4" data-index = "1" class="add-to-cart">Coke</button>
+                <button type="button" data-type="Drink" data-name="Diet-Coke" data-price="4" class="add-to-cart">Diet-Coke</button>
+                <button type="button" data-type="Drink" data-name="Sprite" data-price="4" class="add-to-cart">Sprite</button>
+                <button type="button" data-type="Drink" data-name="Root Beer" data-price="4" class="add-to-cart">Root Beer</button>
+                <button type="button" data-type="Irn Bru" data-name="Irn Bru" data-price="4" class="add-to-cart">Irn Bru</button>
+                
+                <h3>Dessert:</h3>
+                <button type="button" data-type="Dessert" data-name="Chocolate Gelato" data-price="8" class="add-to-cart">$8 Chocolate Gelato</button>
+                <button type="button" data-type="Dessert" data-name="Lemon Sorbet" data-price="7" class="add-to-cart">$7 Lemon Sorbet</button>
+                <button type="button" data-type="Dessert" data-name="Ricotta Cheese Cake" data-price="10" class="add-to-cart">$10 Ricotta Cheese Cake</button> 
+            </div> <!-- menu -->    
 
-
-
-		        </form> <!--delivery-form -->
-
-
-
-
-
-		    </div> <!-- container  -->
-<!-- 	</div>
- -->	   
-
-
-
-
+		</div> <!-- main -->
 
 
 

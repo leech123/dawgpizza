@@ -33,7 +33,7 @@ function renderDrink(entries, template, menuBook) {
 		instance = template.clone();
 		instance.find('.name').html(this.name);
 		instance.find('.price').html(this.price);
-
+		
 		instance.removeClass('template');
 		menuBook.append(instance);
 	});

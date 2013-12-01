@@ -12,6 +12,39 @@ p {
 	padding: 5px;
 }
 
+.shopping-cart {
+	background-color: rgba(0, 0, 0, .5);
+	float:left;
+	color: #FFF;
+	width: 310px;
+	padding: 20px;
+}
+
+.cart-template {
+	padding-bottom: 5px;
+}
+
+.price-template {
+	border-top-width: medium;
+	border-top-color: #954AE0;
+	border-top-style: solid;
+	padding-top: 20px;
+}
+
+.total {
+	color: #FFDF00;
+	text-align: left;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+.form-style {
+	border-top-width: thin;
+	border-top-color: #A9A9A9;
+	border-top-style: solid;
+	padding-top: 20px;
+}
+
 .sidebar {
 	background-color: rgba(0, 0, 0, .5);
 	float:left;
@@ -236,6 +269,9 @@ footer {
 
 @media screen and (max-width: 767px) {
 	/* styles to apply on very narrow screens */
+	.shopping-cart {
+		display:none;
+	}
 
 	.sidebar {
 		display:none;
