@@ -16,6 +16,7 @@ $(function(){
         items: [] //empty array
     }; //cart data
 
+    renderPrice($('.price-template'), $('.cart-container'));
 
     //click event handler for all buttons with the
     //style class 'add-to-cart'
@@ -44,6 +45,7 @@ $(function(){
 
     $('.start-over').click(function(){
         emptyCart(cart, $('.cart-container'));
+        renderPrice($('.price-template'), $('.cart-container'));
     });
 
     $('.place-order').submit(function(){
@@ -56,25 +58,27 @@ $(function(){
         //code to execute when the form is submitted
         //this is the raw DOM form element
         //wrap it in a jQuery object so we can use jQuery methods on it
-        var signupForm = $(this);
+        var ordersForm = $(this);
 
-        var firstInput = signupForm.find('input[name="first-name"]');
-        first = firstInput.val();
-        var lastInput = signupForm.find('input[name="last-name"]');
-        last = lastInput.val();
-        var phoneInput = signupForm.find('input[name="phone"]');
-        phone = phoneInput.val();
+        var firstInput = ordersForm.find('input[name="first-name"]');
+        cart.first = firstInput.val();
+        var lastInput = ordersForm.find('input[name="last-name"]');
+        cart.last = lastInput.val();
+        var phoneInput = ordersForm.find('input[name="phone"]');
+        cart.phone = phoneInput.val();
 
         //select a descendant input element with the name "addr-1"
-        var addr1Input = signupForm.find('input[name="addr-1"]');
+        var addr1Input = ordersForm.find('input[name="addr-1"]');
         var addr1Value = addr1Input.val();
-        address1 = addr1Value;
-        var zipInput = signupForm.find('input[name="zip"]');
+        cart.address1 = addr1Value;
+        var zipInput = ordersForm.find('input[name="zip"]');
         var zipValue = zipInput.val();
-        zip = zipValue;
+        cart.zip = zipValue;
 
         if (addr1Value && addr1Value.trim().length > 0 && zipValue && zipValue.trim().length > 0) {
             if (grandtotal >= 20) {
+                ordersForm.find('input[name="cart"]').val(JSON.stringify(cart));
+                ordersForm.submit();
                 return true;
             } else {
                 alert("Order must be minimum of $20");
@@ -88,14 +92,7 @@ $(function(){
         postCart(cart, $('.cart-form'));
     });
     
-    $('.remove').click(function(){
-        $('.cart-container').empty();
-        var idxToRemove = this.getAttribute('data-index');
-        cart.items.splice(idxToRemove, 1);
 
-        renderCart(cart, $('.cart-template'), $('.cart-container'));
-        renderPrice($('.price-template'), $('.cart-container'));
-    });
 
 
 }); //doc ready
@@ -114,6 +111,9 @@ function renderCart(cart, template, container) {
     
     //empty the container of whatever is there currently
     container.empty();
+    subtotal = 0;
+    tax = 0;
+    grandtotal = 0;
 
     //for each item in the cart...
     for (idx = 0; idx < cart.items.length; idx++) {
@@ -122,16 +122,27 @@ function renderCart(cart, template, container) {
 
         instance.find('.name').html(item.name);
         instance.find('.price').html("$" + item.price);
+        instance.find('.remove').attr('data-index', idx);
+
         
         //TODO: code to render the cart item
         instance.removeClass('template');
+        instance.removeClass('cart-template');
         container.append(instance);
 
         subtotal += +item.price;
         tax = subtotal * 0.095;
         grandtotal = subtotal + tax;
     } //for each cart item
-    template.empty();
+
+    $('.remove').click(function(){
+        $('.cart-container').empty();
+        var idxToRemove = this.getAttribute('data-index');
+        cart.items.splice(idxToRemove, 1);
+
+        renderCart(cart, $('.cart-template'), $('.cart-container'));
+        renderPrice($('.price-template'), $('.cart-container'));
+    });
     
 } //renderCart()
 
@@ -146,6 +157,7 @@ function renderPrice(template, container) {
     instance.find('.tax').html("Tax: $" + tax.toFixed(2));
     instance.find('.grandtotal').html("Grandtotal: $" + grandtotal.toFixed(2));
     instance.removeClass('template');
+    instance.removeClass('price-template');
     container.append(instance);
 }
 
@@ -167,8 +179,8 @@ function emptyCart(cart, container) {
 function postCart(cart, cartForm) {
     //find the input in the form that has the name of 'cart'    
     //and set it's value to a JSON representation of the cart model
-    cartForm.find('input[name="cart"]').val(JSON.stringify(cart));
+    ordersForm.find('input[name="cart"]').val(JSON.stringify(cart));
 
     //submit the form--this will navigate to an order confirmation page
-    cartForm.submit();
+    ordersForm.submit();
 } //postCart()

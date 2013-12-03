@@ -30,7 +30,7 @@
 		    <div class="template cart-template">
 		    	<p class="name"></p>
 		    	<p class="price"></p>
-		    	<button type="button" class="remove">Remove</button>
+		    	<button type="button" data-index="" class="remove">Remove</button>
 		    </div>
 		    <div class="template price-template">
 		    	<h2 class="total"></h2>
@@ -41,8 +41,8 @@
 
 			
 
-			<form method="POST" action="http://dawgpizza.com/orders/" class="form-horizontal place-order form-style" role="form">
-
+			<form method="POST" action="http://dawgpizza.com/orders/" class="form-horizontal place-order form-style cart-form" role="form">
+				<input type="hidden" name="cart">
 				<div class="form-group">
 	                <label class="col-lg-2 control-label" for="first-name">Name</label>
 	                <div class="col-lg-5">
@@ -56,8 +56,6 @@
 	                <label class="col-lg-2 control-label" for="addr-1">Address</label>
 	                <div class="col-lg-10">
 	                    <input type="text" class="form-control" name="addr-1" id="addr-1" placeholder="street address">
-	                    <input type="text" class="form-control" name="addr-2">
-	                    <input type="text" class="form-control" name="addr-3">
 	                </div>
 	            </div>
 	            <div class="form-group">
